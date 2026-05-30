@@ -1,0 +1,98 @@
+HYBRID CLOUD AWS PROJECT - IMPLEMENTATION CHECKLIST
+
+How to use this:
+- Complete each phase in order.
+- Do not move forward until `terraform plan` is clean.
+- Capture screenshots/evidence at the end of each phase.
+
+PHASE 0 - STABILIZE CURRENT BASE
+[ ] Run `terraform fmt -recursive`
+[ ] Run `terraform validate` in `environments/dev`
+[ ] Confirm baseline still deploys and destroys cleanly
+[ ] Commit baseline cleanup
+
+PHASE 1 - HYBRID NETWORK FOUNDATION
+[X] Create `modules/onprem_network` for simulated on-prem VPC
+[ ] Add on-prem CIDR (example: `10.50.0.0/16`) with private subnets
+[ ] Choose connection model:
+    - Transit Gateway (recommended), or
+    - Site-to-Site VPN simulation
+[ ] Add route propagation/routes between app VPC and on-prem VPC
+[ ] Restrict SG/NACL rules to minimum needed ports/protocols
+[ ] Test connectivity from app side to on-prem side
+[ ] Capture architecture diagram v1
+
+PHASE 2 - IDENTITY AND ACCESS
+[ ] Keep IAM instance roles (no hardcoded access keys)
+[ ] Add IAM Identity Center setup notes and role model
+[ ] Create role policies:
+    - ReadOnly
+    - OpsEngineer
+    - PlatformAdmin
+[ ] Add break-glass role with strict use notes
+[ ] Verify least privilege by testing denied actions for lower roles
+[ ] Document "who can do what" table in README or docs
+
+PHASE 3 - SECURITY CONTROLS
+[ ] Enable CloudTrail (management events at minimum)
+[ ] Enable AWS Config and baseline compliance rules
+[ ] Enable GuardDuty
+[ ] Enable Security Hub
+[ ] Add/verify KMS encryption for key resources
+[ ] Confirm private workloads have no direct public inbound
+[ ] Capture screenshots of enabled services and findings/status
+
+PHASE 4 - OPERATIONS AND MONITORING
+[ ] Create CloudWatch dashboard for core resources
+[ ] Add CloudWatch alarms (CPU, status checks, suspicious API activity)
+[ ] Add SNS topic and subscription for alerting
+[ ] Configure SSM patch baseline and maintenance window
+[ ] Create operational runbook:
+    - alert received
+    - triage steps
+    - escalation steps
+    - resolution notes
+[ ] Test one alert end-to-end and record evidence
+
+PHASE 5 - BACKUP AND RECOVERY
+[ ] Create AWS Backup vault and backup plan
+[ ] Attach protected resources (EC2, RDS if present)
+[ ] Execute at least one successful backup job
+[ ] Perform one restore test
+[ ] Record restore outcome and timing
+[ ] Document simple RPO/RTO goals
+
+PHASE 6 - OPTIONAL APP LAYER (STRONG PORTFOLIO BOOST)
+[ ] Add ALB
+[ ] Add Auto Scaling Group for app instances
+[ ] Keep app instances private where possible
+[ ] (Optional) Add RDS in private subnets
+[ ] Add health checks and basic app availability test
+[ ] Update architecture diagram v2
+
+PHASE 7 - DOCUMENTATION PACK
+[ ] HLD completed
+[ ] LLD completed
+[ ] As-built completed
+[ ] Operations manual completed
+[ ] Control mapping page completed
+[ ] README polished for external reviewer readability
+
+PHASE 8 - APPLICATION-READY EVIDENCE PACK
+[ ] Screenshots organized under `docs/screenshots/`
+[ ] Final architecture diagram exported
+[ ] 1-page case study written:
+    - problem
+    - design choices
+    - tradeoffs
+    - outcome
+[ ] "Lessons learned" section added
+[ ] Final proof run:
+    - `terraform plan`
+    - targeted smoke tests
+    - cleanup steps documented
+
+DONE CRITERIA
+[ ] One project shows design + deployment + security + operations + recovery
+[ ] Evidence is clear enough for interview walkthrough
+[ ] Another engineer can reproduce from docs

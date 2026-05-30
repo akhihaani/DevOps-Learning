@@ -1,0 +1,85 @@
+# Overview
+
+This project focuses on building a custom AWS Virtual Private Cloud (VPC) from scratch to understand cloud networking fundamentals, including subnetting, routing, and secure access to public and private resources.
+
+⸻
+
+# What I Built
+	•	A custom VPC with a /16 CIDR block
+	•	One public subnet and one private subnet with non-overlapping CIDRs
+	•	An Internet Gateway (IGW) for public internet access
+	•	A NAT Gateway for private subnet outbound access
+	•	Separate route tables for public and private traffic
+	•	Public, private, and bastion EC2 instances with least-privilege access
+
+⸻
+
+# Network Design
+	•	VPC CIDR: 10.0.0.0/16
+	•	Public Subnet: 10.0.0.0/20
+	•	Private Subnet: 10.0.16.0/20
+
+The public subnet is used for internet-facing resources, while the private subnet is isolated from direct internet access.
+
+⸻
+
+# Internet Access & Routing
+	•	An Internet Gateway was attached to the VPC to allow public subnet resources to communicate with the internet.
+	•	A NAT Gateway was deployed in the public subnet to enable outbound internet access for private subnet resources.
+	•	Two route tables were created:
+	•	Public route table:
+	•	0.0.0.0/0 → Internet Gateway
+	•	Private route table:
+	•	0.0.0.0/0 → NAT Gateway
+	•	Each subnet was explicitly associated with the correct route table to enforce traffic flow.
+
+⸻
+
+# Compute & Access
+	•	Public EC2 instance
+	•	Public IP enabled
+	•	Security group allows SSH and HTTP only from my IP
+	•	Private EC2 instance
+	•	No public IP
+	•	Security group allows SSH only from a trusted internal source
+	•	Bastion Host
+	•	Publicly accessible EC2 instance
+	•	Used as a secure entry point to access private instances
+
+Security groups were configured using security group references rather than CIDR ranges to restrict internal access.
+
+⸻
+
+# Lessons Learned
+	•	Public and private access in AWS is enforced through routing, not just subnet naming.
+	•	NAT Gateways are required for private instances to access the internet securely.
+	•	Bastion hosts provide a controlled way to manage private resources without exposing them publicly.
+	•	Careful route table association is critical to prevent unintended internet exposure.
+
+⸻
+
+# Outcome
+
+This assignment established a solid foundation in AWS networking concepts and directly informed later projects involving load balancers, private compute, and multi-tier architectures.
+
+
+# Braindump of what I did:
+
+Created the VPC (Virtual Private Cloud) called assignment-1-VPC (10.0.0.0/16)
+
+created two subnets separately, one public and one private.
+public subnet was given 10.0.0.0/20 and private was given 10.0.16.0/20
+
+Created an Internet Gateway very easily and then clicked actions to attach it to the VPC
+
+Created a NAT Gateway though it ended up in a failed state and i had to delete it and recreate it after i was doing the route tables
+Created new NAT Gateway and it was good and i connected it to route table
+
+For the route tables i made two tables, public and private.
+On the public table i associated the public subnet and edited the routes to include a second route (destination 0.0.0.0/0 and target IGW i created)
+for the private route table i associated the private subnet and edited the routes to include a second route (destination 0.0.0.0/0 and target NATGW-2)
+
+Next step was creating the instances
+Made a public EC2 instance with public IP enabled and security group only allow ssh and http from my IP
+Made a private EC2 instance with public IP disabled and security group only allow ssh from public EC2 instance, Which meant i inputted Security group ID as source when selecting custom source
+I also created a third instance which had public IP enabled and could ssh from anywhere - This is the bastion host in order to access the private EC2 instance

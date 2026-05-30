@@ -1,0 +1,14 @@
+#cloud-config
+
+packages: # To install stuff
+ - httpd
+
+write_files: # To create config files or web pages
+ - path: /var/www/html/index.html 
+   permissions: "0644"
+   owner: root:root
+   content: |
+     <h1>Hello from cloud-init</h1>
+
+runcmd: # To run commands after packages install
+ - systemctl enable --now httpd # To start service

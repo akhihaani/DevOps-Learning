@@ -1,0 +1,30 @@
+# Assignment 1 – Deploy WordPress Using Terraform
+
+## Objective
+Deploy a WordPress site on AWS using Terraform.
+The infrastructure includes an EC2 instance, security groups, and user data to install and configure WordPress automatically.
+
+## Architecture Overview
+- AWS EC2 instance (Amazon Linux)
+- Security Group allowing HTTP (80) and SSH (22)
+- User data script installs Apache, PHP, MariaDB, and WordPress
+- Public endpoint exposed via EC2 public IP
+
+## Terraform Files
+- main.tf – Provider, EC2 instance, security group, and user data
+- variables.tf – Input variables
+- outputs.tf – Public IP and WordPress URL
+
+## How It Works
+1. Terraform provisions an EC2 instance in the default VPC
+2. A security group allows inbound web traffic
+3. User data installs and configures WordPress automatically
+4. The site becomes accessible via the public IP
+
+## Deployment Steps
+terraform init
+terraform plan
+terraform apply
+
+---
+Terraform was used to ensure infrastructure could be recreated consistently and automatically without manual AWS configuration

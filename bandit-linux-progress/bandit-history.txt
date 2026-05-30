@@ -1,0 +1,106 @@
+    1  ls
+    2  pwd
+    3  sudo apt update
+    4  sudo apt install
+    5  sudo apt install ubuntu-desktop
+    6  sudo systemctl status display-manager
+    7  sudo apt install gdm3
+    8  sudo systemctl enable gdm3
+    9  sudo systemctl start gdm3
+   10  ssh bandit0 @bandit.labs.overthewire.org port 2220
+   11  ssh bandit0 @bandit.labs.overthewire.org p 2220
+   12  ssh - OpenSSH remote login client
+   13  ssh bandit0@bandit.labs.overthewire.org -p 2220
+   14  ssh bandit1@bandit.labs.overthewire.org -p 2220
+   15  ssh bandit2@bandit.labs.overthewire.org -p 2220
+   16  ssh bandit3@bandit.labs.overthewire.org -p 2220
+   17  ssh bandit4@bandit.labs.overthewire.org -p 2220
+   18  ssh bandit5@bandit.labs.overthewire.org -p 2220
+   19  ssh bandit6@bandit.labs.overthewire.org -p 2220
+   20  ssh bandit7@bandit.labs.overthewire.org -p 2220
+   21  ssh bandit8@bandit.labs.overthewire.org -p 2220
+   22  ssh bandit9@bandit.labs.overthewire.org -p 2220
+   23  ssh bandit10@bandit.labs.overthewire.org -p 2220
+   24  ssh bandit11@bandit.labs.overthewire.org -p 2220
+   25  ssh bandit12@bandit.labs.overthewire.org -p 2220
+   26  ssh bandit11@bandit.labs,overthewire.org -p 2220
+   27  ssh bandit11@bandit.labs.overthewire.org -p 2220
+   28  ssh bandit12@bandit.labs.overthewire.org -p 2220
+   29  DIR=$(mktemp -d)
+   30  echo $DIR
+   31  cd "$DIR"
+   32  cp ~/data.txt
+   33  cp ~/data.txt .
+   34  cd ..
+   35  ssh bandit12@bandit.labs.overthewire.org -p 2220
+   36  ssh bandit13@bandit.labs.overthewire.org -p 2220
+   37  ssh -i MIIEpAIBAAKCAQEAxkkOE83W2cOT7IWhFc9aPaaQmQDdgzuXCv+ppZHa++buSkN+
+   38  gg0tcr7Fw8NLGa5+Uzec2rEg0WmeevB13AIoYp0MZyETq46t+jk9puNwZwIt9XgB
+   39  ZufGtZEwWbFWw/vVLNwOXBe4UWStGRWzgPpEeSv5Tb1VjLZIBdGphTIK22Amz6Zb
+   40  ThMsiMnyJafEwJ/T8PQO3myS91vUHEuoOMAzoUID4kN0MEZ3+XahyK0HJVq68KsV
+   41  ObefXG1vvA3GAJ29kxJaqvRfgYnqZryWN7w3CHjNU4c/2Jkp+n8L0SnxaNA+WYA7
+   42  jiPyTF0is8uzMlYQ4l1Lzh/8/MpvhCQF8r22dwIDAQABAoIBAQC6dWBjhyEOzjeA
+   43  J3j/RWmap9M5zfJ/wb2bfidNpwbB8rsJ4sZIDZQ7XuIh4LfygoAQSS+bBw3RXvzE
+   44  pvJt3SmU8hIDuLsCjL1VnBY5pY7Bju8g8aR/3FyjyNAqx/TLfzlLYfOu7i9Jet67
+   45  xAh0tONG/u8FB5I3LAI2Vp6OviwvdWeC4nOxCthldpuPKNLA8rmMMVRTKQ+7T2VS
+   46  nXmwYckKUcUgzoVSpiNZaS0zUDypdpy2+tRH3MQa5kqN1YKjvF8RC47woOYCktsD
+   47  o3FFpGNFec9Taa3Msy+DfQQhHKZFKIL3bJDONtmrVvtYK40/yeU4aZ/HA2DQzwhe
+   48  ol1AfiEhAoGBAOnVjosBkm7sblK+n4IEwPxs8sOmhPnTDUy5WGrpSCrXOmsVIBUf
+   49  laL3ZGLx3xCIwtCnEucB9DvN2HZkupc/h6hTKUYLqXuyLD8njTrbRhLgbC9QrKrS
+   50  M1F2fSTxVqPtZDlDMwjNR04xHA/fKh8bXXyTMqOHNJTHHNhbh3McdURjAoGBANkU
+   51  1hqfnw7+aXncJ9bjysr1ZWbqOE5Nd8AFgfwaKuGTTVX2NsUQnCMWdOp+wFak40JH
+   52  PKWkJNdBG+ex0H9JNQsTK3X5PBMAS8AfX0GrKeuwKWA6erytVTqjOfLYcdp5+z9s
+   53  8DtVCxDuVsM+i4X8UqIGOlvGbtKEVokHPFXP1q/dAoGAcHg5YX7WEehCgCYTzpO+
+   54  xysX8ScM2qS6xuZ3MqUWAxUWkh7NGZvhe0sGy9iOdANzwKw7mUUFViaCMR/t54W1
+   55  GC83sOs3D7n5Mj8x3NdO8xFit7dT9a245TvaoYQ7KgmqpSg/ScKCw4c3eiLava+J
+   56  3btnJeSIU+8ZXq9XjPRpKwUCgYA7z6LiOQKxNeXH3qHXcnHok855maUj5fJNpPbY
+   57  iDkyZ8ySF8GlcFsky8Yw6fWCqfG3zDrohJ5l9JmEsBh7SadkwsZhvecQcS9t4vby
+   58  9/8X4jS0P8ibfcKS4nBP+dT81kkkg5Z5MohXBORA7VWx+ACohcDEkprsQ+w32xeD
+   59  qT1EvQKBgQDKm8ws2ByvSUVs9GjTilCajFqLJ0eVYzRPaY6f++Gv/UVfAPV4c+S0
+   60  kAWpXbv5tbkkzbS0eaLPTKgLzavXtQoTtKwrjpolHKIHUz6Wu+n4abfAIRFubOdN
+   61  /+aLoRQ0yBDRbdXMsZN/jvY44eM+xRLdRVyMmdPtP8belRi2E2aEzA== bandit14@localhost -p 2220
+   62  man s_client
+   63  ssh bandit13@bandit.labs.overthewire.org -p 2220
+   64  ssh MIIEpAIBAAKCAQEAxkkOE83W2cOT7IWhFc9aPaaQmQDdgzuXCv+ppZHa++buSkN+
+   65  gg0tcr7Fw8NLGa5+Uzec2rEg0WmeevB13AIoYp0MZyETq46t+jk9puNwZwIt9XgB
+   66  ZufGtZEwWbFWw/vVLNwOXBe4UWStGRWzgPpEeSv5Tb1VjLZIBdGphTIK22Amz6Zb
+   67  ThMsiMnyJafEwJ/T8PQO3myS91vUHEuoOMAzoUID4kN0MEZ3+XahyK0HJVq68KsV
+   68  ObefXG1vvA3GAJ29kxJaqvRfgYnqZryWN7w3CHjNU4c/2Jkp+n8L0SnxaNA+WYA7
+   69  jiPyTF0is8uzMlYQ4l1Lzh/8/MpvhCQF8r22dwIDAQABAoIBAQC6dWBjhyEOzjeA
+   70  J3j/RWmap9M5zfJ/wb2bfidNpwbB8rsJ4sZIDZQ7XuIh4LfygoAQSS+bBw3RXvzE
+   71  pvJt3SmU8hIDuLsCjL1VnBY5pY7Bju8g8aR/3FyjyNAqx/TLfzlLYfOu7i9Jet67
+   72  xAh0tONG/u8FB5I3LAI2Vp6OviwvdWeC4nOxCthldpuPKNLA8rmMMVRTKQ+7T2VS
+   73  nXmwYckKUcUgzoVSpiNZaS0zUDypdpy2+tRH3MQa5kqN1YKjvF8RC47woOYCktsD
+   74  o3FFpGNFec9Taa3Msy+DfQQhHKZFKIL3bJDONtmrVvtYK40/yeU4aZ/HA2DQzwhe
+   75  ol1AfiEhAoGBAOnVjosBkm7sblK+n4IEwPxs8sOmhPnTDUy5WGrpSCrXOmsVIBUf
+   76  laL3ZGLx3xCIwtCnEucB9DvN2HZkupc/h6hTKUYLqXuyLD8njTrbRhLgbC9QrKrS
+   77  M1F2fSTxVqPtZDlDMwjNR04xHA/fKh8bXXyTMqOHNJTHHNhbh3McdURjAoGBANkU
+   78  1hqfnw7+aXncJ9bjysr1ZWbqOE5Nd8AFgfwaKuGTTVX2NsUQnCMWdOp+wFak40JH
+   79  PKWkJNdBG+ex0H9JNQsTK3X5PBMAS8AfX0GrKeuwKWA6erytVTqjOfLYcdp5+z9s
+   80  8DtVCxDuVsM+i4X8UqIGOlvGbtKEVokHPFXP1q/dAoGAcHg5YX7WEehCgCYTzpO+
+   81  xysX8ScM2qS6xuZ3MqUWAxUWkh7NGZvhe0sGy9iOdANzwKw7mUUFViaCMR/t54W1
+   82  GC83sOs3D7n5Mj8x3NdO8xFit7dT9a245TvaoYQ7KgmqpSg/ScKCw4c3eiLava+J
+   83  3btnJeSIU+8ZXq9XjPRpKwUCgYA7z6LiOQKxNeXH3qHXcnHok855maUj5fJNpPbY
+   84  iDkyZ8ySF8GlcFsky8Yw6fWCqfG3zDrohJ5l9JmEsBh7SadkwsZhvecQcS9t4vby
+   85  9/8X4jS0P8ibfcKS4nBP+dT81kkkg5Z5MohXBORA7VWx+ACohcDEkprsQ+w32xeD
+   86  qT1EvQKBgQDKm8ws2ByvSUVs9GjTilCajFqLJ0eVYzRPaY6f++Gv/UVfAPV4c+S0
+   87  kAWpXbv5tbkkzbS0eaLPTKgLzavXtQoTtKwrjpolHKIHUz6Wu+n4abfAIRFubOdN
+   88  /+aLoRQ0yBDRbdXMsZN/jvY44eM+xRLdRVyMmdPtP8belRi2E2aEzA== bandit14@bandit.labs.overthewire.org -p 2220
+   89  nano bandit14.key
+   90  ssh -i ~/bandit14.key bandit14@bandit.labs.overthewire.org -p 2220
+   91  chmod 600 ~/bandit14.key
+   92  ls -l
+   93  ssh -i bandit14.key bandit14@bandit.labs.overthewire.org -p 2220
+   94  ssh -i ~/bandit14.key bandit14@bandit.labs.overthewire.org -p 2220
+   95  rm ~/bandit14.key
+   96  ssh bandit13@bandit.labs.overthewire.org -p 2220
+   97  nano ~/bandit14.key
+   98  chmod 600 ~/bandit14.key
+   99  ssh -i ~/bandit14.key bandit14@bandit.labs.overthewire.org -p 2220
+  100  nano ~/bandit14.key
+  101  chmod 600 ~/bandit14.key
+  102  ssh -i ~/bandit14.key bandit14@bandit.labs.overthewire.org -p 2220
+  103  ssh bandit15@bandit.labs.overthewire.org -p 2220
+  104  ssh bandit16@bandit.labs.overthewire.org -p 2220
+  105  history > bandit-history.txt
+  106  history > ~/bandit-history.txt

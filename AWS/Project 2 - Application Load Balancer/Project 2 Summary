@@ -1,0 +1,132 @@
+# Overview
+
+This project demonstrates deploying multiple EC2 instances behind an Application Load Balancer (ALB) with proper network isolation, health checks, and security group design. The ALB acts as the single public entry point, while EC2 instances remain private and inaccessible directly from the internet.
+
+⸻
+
+# What I Built
+	•	Two EC2 instances running a simple Apache web server
+	•	Instances deployed across different Availability Zones for redundancy
+	•	An Application Load Balancer spanning two public subnets
+	•	A target group with health checks on /
+	•	Security groups enforcing ALB-only access to EC2 instances
+	•	NAT Gateway to allow private instances outbound internet access
+
+⸻
+
+# Key Implementation Details
+	•	User Data was used to automatically install and start Apache on each EC2 instance, with each instance serving slightly different content to verify load balancing.
+	•	The ALB listens on HTTP (port 80) and forwards traffic to a target group containing both EC2 instances.
+	•	Health checks were configured on the root path (/) to ensure only healthy instances receive traffic.
+	•	Security groups were isolated properly:
+	•	ALB security group allows HTTP from anywhere.
+	•	EC2 security group allows HTTP only from the ALB security group.
+	•	EC2 instances have no public IP addresses.
+	•	EC2 instances were placed in private subnets, with outbound internet access provided via a NAT Gateway to allow package installation during boot.
+
+⸻
+
+# Debugging & Lessons Learned
+	•	Initial health check failures (502 Bad Gateway) revealed a connectivity issue, not an application issue.
+	•	Monitoring data showed requests reaching the ALB but not the instances.
+	•	The root cause was that EC2 instances in private subnets could not reach the internet to install packages via user data.
+	•	This was resolved by introducing a NAT Gateway and a private route table, reinforcing concepts from Assignment 1.
+	•	Once networking was corrected, health checks passed and traffic successfully alternated between instances.
+
+⸻
+
+# Verification
+	•	Visiting the ALB DNS name successfully returns responses from both EC2 instances.
+	•	Refreshing the page alternates content, confirming load balancing.
+	•	Target group health checks report both instances as healthy.
+
+⸻
+
+# Outcome
+
+This assignment reinforced core DevOps concepts:
+	•	Separation of public and private resources
+	•	Load balancer–centric architectures
+	•	Security group referencing for least privilege
+	•	The dependency between networking design and application behavior
+
+---
+
+# Braindump of what I did:
+
+Went over the brief to get an understanding of what im going to be doing
+
+Started launching the first EC2 Instance.
+
+I realise to launch them in different availability zones I will need to create subnets in different AZ's
+
+Created my subnets in AZ's eu-west-2b and eu-west-2c using the VPC I created for assignment 1
+
+Went back to launching instances
+
+I then find out i missed the edit button on the network settings and that I didn't need to create the subnets
+I edit the network settings and create the security group (which i will later edit once the ALB is created)
+
+I add the following user data:
+    #!/bin/bash
+    
+    yum update -y
+    yum install -y httpd
+
+    systemctl start httpd
+    systemctl enable httpd
+
+    echo "<h1>Hello from EC2-2b</h1>" > /var/www/html/index.html
+
+the echo message in the user data is slightly different in the other instance so we can differentiate them.
+
+Created an ALB
+    Added both public subnets to it, though an IGW will be required so I will make one
+
+    Default SG was selected but I will replace with a new SG after the ALB has been made
+
+    Created a target group and registered both EC2 instances onto it, added health check on path /
+
+I created a route table which i associated both subnets with and connected my IGW to (IGW from assignment 1)
+
+I created the ALB SG allowing HTTP from anywhere
+I changed the ALB SG to now be the SG i just created
+
+I tried editing the EC2 SG to only take HTTP from ALB SG but it didn't work
+    'You may not specify a referenced group id for an existing IPv4 CIDR rule.'
+I decided to create a new inbound rule and delete the first and it worked this time.
+
+Beginning testing
+
+I pasted the ALB DNS name into the browser and got '502 Bad Gateway'
+
+Checking the load balancers resource mapping I saw the health checks returned as unhealthy
+I went to the target group to adjust its settings but the settings look fine
+
+I decided to edit the SG of the instances to allow access from anywhere so I can see if there is a web server issue.
+did not work because the ALB DNS is the only public access
+
+the user data has no issues so i went back to checking the target group
+The health checks just say they failed with no further reasoning so i checked the monitoring of the target group
+    No 4XX or 5XX data. also no response time data despite there being requests counted
+    This leads to me seeing not an application error but a connectivity error
+
+It appears that with no public IP address or NAT Gateway the instances were not able to download the metadata
+
+Created a NAT GW and tried adding it to the Route Table. I saw it didnt work and that i needed to create a separate route table
+
+I made a new route table for the NAT GW meant to be the private route table
+I created two new subnets which are meant to be private subnets used for this route table which i will then also use for the EC2 instances when i launch the new ones
+
+The previous subnets i created i keep for the ALB and public route table (with the IGW), those subnets are public.
+
+I can see how the previous assignment led up to this.
+
+launched the two instances again, now both are connected to their respective private subnets
+I added both instances to the target group i created
+
+IT WORKED!!!
+
+I was able to visit through the ALB DNS, health checks look good and the page refresh shows both instances.
+
+I am going to screenshot now

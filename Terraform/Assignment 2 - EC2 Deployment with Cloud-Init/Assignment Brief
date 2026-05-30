@@ -1,0 +1,37 @@
+# Assignment 2 – EC2 Deployment with Cloud-Init
+
+## Objective
+Deploy an EC2 instance on AWS using Terraform and automate its configuration
+using a cloud-init YAML file. The instance should come online fully configured
+with no manual intervention.
+
+## Architecture Overview
+- AWS EC2 instance (Amazon Linux)
+- Security Group allowing HTTP (80) and SSH (22)
+- Cloud-init YAML file used to install and configure Apache
+- Public endpoint exposed via the EC2 public IP
+
+## Terraform Files
+- main.tf – Provider configuration, EC2 instance, security group, and user data
+- variables.tf – Input variables
+- outputs.tf – Public IP and URL of the EC2 instance
+- cloud-init.yaml – Cloud-init configuration for Apache setup
+
+## How It Works
+1. Terraform provisions an EC2 instance in the default VPC
+2. A security group allows inbound web traffic on port 80
+3. Cloud-init runs on first boot to:
+   - Install httpd
+   - Create a simple HTML page
+   - Enable and start the httpd service
+4. The web server is immediately accessible via the public IP
+
+## Deployment Steps
+terraform init
+terraform plan
+terraform apply
+
+---
+
+# User data is how you pass startup instructions to an EC2 instance. Cloud-init yaml is one possible format for those instructions.
+# One contains the other. User data is the envelope, yaml file is the letter
